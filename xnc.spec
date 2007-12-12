@@ -11,7 +11,7 @@ Release: %release
 Source0: %{name}-%{version}.src.tar.bz2
 Url: http://www.xnc.dubna.su  
 Group:  File tools
-Buildrequires: XFree86-devel ImageMagick
+Buildrequires: X11-devel ImageMagick
 BuildRequires: libpng-devel libjpeg-devel libtiff-devel
 BuildRoot: %_tmppath/%{name}-buildroot
 License: GPL
