@@ -58,15 +58,15 @@ convert %{buildroot}/usr/share/pixmaps/xnc.png -geometry 48x48 %{buildroot}%{_li
 convert %{buildroot}/usr/share/pixmaps/xnc.png -geometry 32x32 %{buildroot}%{_iconsdir}/%{iconname}
 convert %{buildroot}/usr/share/pixmaps/xnc.png -geometry 16x16 %{buildroot}%{_miconsdir}/%{iconname}
 
-mkdir -p $RPM_BUILD_ROOT/%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT/%{_menudir}/%{name}
-?package(%{name}):\
-needs="x11"\
-section="System/File Tools"\
-title="Xnc"\
-longtitle="X Northern Captain - X filemanager with many functions "\ 
-command="xnc"\
-icon="%{name}.png"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Categories=X-MandrivaLinux-System-FileTools;System;
+Name=Xnc
+Comment=X Northern Captain - X filemanager with many functions
+Exec=xnc
+Icon=%{name}
 EOF
 
  
@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applnk/System/X_Northern_Captain.desktop
 %{_datadir}/gnome/apps/Applications/xnc.desktop
 %{_datadir}/pixmaps/*.* 
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 %{_miconsdir}/%{iconname}
 %{_iconsdir}/%{iconname}
 %{_liconsdir}/%{iconname}
