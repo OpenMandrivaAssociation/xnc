@@ -71,7 +71,7 @@ EOF
 
  
 %find_lang %{name}
-rm -fr $RPM_BUILD_DIR/%_docdir/%{name}-%{version}
+rm -fr $RPM_BUILD_ROOT/%_docdir/%{name}-%{version}
 
 %post 
 %{update_menus}
