@@ -40,8 +40,8 @@ CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s ./configure \
 mkdir -p $RPM_BUILD_ROOT/%{_mandir}
 mv  -f  $RPM_BUILD_ROOT/%{_prefix}/man/man1 $RPM_BUILD_ROOT/%{_mandir}
 
-mkdir -p $RPM_BUILD_ROOT/usr/share/%{name}/help
-mv $RPM_BUILD_DIR/%{name}-%{version}/doc/*.html  $RPM_BUILD_ROOT/usr/share/%{name}/help 
+mkdir -p $RPM_BUILD_ROOT/usr/share/%{name}-%{version}/help
+cp $RPM_BUILD_DIR/%{name}-%{version}/doc/*.html  $RPM_BUILD_ROOT/usr/share/%{name}-%{version}/help 
  
 mkdir -p $RPM_BUILD_ROOT%_sysconfdir/X11/wmconfig
 cat > $RPM_BUILD_ROOT%_sysconfdir/X11/wmconfig/xnc <<EOF
