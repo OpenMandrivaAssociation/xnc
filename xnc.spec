@@ -13,6 +13,7 @@ Url: http://www.xnc.dubna.su
 Group:  File tools
 Buildrequires: X11-devel ImageMagick
 BuildRequires: libpng-devel libjpeg-devel libtiff-devel
+BuildRoot: %_tmppath/%{name}-buildroot
 License: GPL
 
 %description
