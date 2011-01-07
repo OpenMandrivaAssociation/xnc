@@ -16,6 +16,7 @@ Url: http://www.xnc.dubna.su
 Group:  File tools
 BuildRequires: libx11-devel
 BuildRequires: libxext-devel
+Buildrequires: libxt-devel
 BuildRequires: jpeg-devel
 BuildRequires: tiff-devel
 BuildRequires: png-devel
@@ -36,7 +37,7 @@ and edit images, text and binary files...
 
 %build
 %configure2_5x --with-x
-%make
+make
 
 %install
 rm -fr %buildroot
