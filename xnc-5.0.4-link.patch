@@ -1,0 +1,136 @@
+--- src/ives/makefile.in.link	2011-01-07 09:41:53.000000000 +0000
++++ src/ives/makefile.in	2011-01-07 09:43:24.000000000 +0000
+@@ -59,16 +59,16 @@
+ 	make $(MYBINDIR)/ives
+ 
+ $(MYBINDIR)/ives: $(IVESOBJS) $(IVESLIBS) $(JDEP) $(PNGDEP) $(ZDEP)
+-	$(CXX) -o $@ $(IVESOBJS) $(IVESLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ $(IVESOBJS) $(IVESLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
++	$(DEB) $(STRIPPING)
+ 
+ $(MYBINDIR)/iview: vs.o
+-	$(CXX) -o $@ vs.o $(MYLIBDIR)/libnorthgui.a $(LIBS) $(XLIBS) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ vs.o $(MYLIBDIR)/libnorthgui.a $(LIBS) $(XLIBS) \
++	$(DEB) $(STRIPPING)
+ 
+ $(MYBINDIR)/iedit: es.o
+-	$(CXX) -o $@ es.o $(MYLIBDIR)/libnorthgui.a $(LIBS) $(XLIBS) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ es.o $(MYLIBDIR)/libnorthgui.a $(LIBS) $(XLIBS) \
++	$(DEB) $(STRIPPING)
+ 
+ 
+ $(JDEP):
+--- src/launch/makefile.in.link	2011-01-07 09:41:53.000000000 +0000
++++ src/launch/makefile.in	2011-01-07 09:43:56.000000000 +0000
+@@ -53,8 +53,8 @@
+ 	make $(MYBINDIR)/xnlaunch
+ 
+ $(MYBINDIR)/xnlaunch: $(LNOBJS) $(LNLIBS) $(JDEP)
+-	$(CXX) -o $@ $(LNOBJS) $(LNLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ $(LNOBJS) $(LNLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
++	$(DEB) $(STRIPPING)
+ 
+ clean:
+ 	$(RMF) *.o
+--- src/makefile.in.link	2011-01-07 09:41:53.000000000 +0000
++++ src/makefile.in	2011-01-07 09:44:55.000000000 +0000
+@@ -116,12 +116,12 @@
+ 	./configure
+ 
+ $(MYBINDIR)/xnc: $(XNCOBJS) $(XNCLIBS) $(JDEP)
+-	$(CXX) -o $@ $(XNCOBJS) $(XNCLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ $(XNCOBJS) $(XNCLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
++	$(DEB) $(STRIPPING)
+ 
+ $(MYBINDIR)/xncloader: helpers/resloader.o plugins/aqua/aquaskin.o \
+ 	plugins/five/fiveskin.o
+-	$(CXX) -o $@ \
++	$(CXX) $(LDFLAGS) -o $@ \
+ 	helpers/resloader.o \
+ 	plugins/aqua/aquaskin.o \
+ 	plugins/five/fiveskin.o	\
+@@ -131,7 +131,7 @@
+ 	$(MYLIBDIR)/libxnciconset.a \
+ 	$(MYLIBDIR)/libxnctool.a \
+ 	$(LOCAL_LIBRARIES) $(JLIB) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(DEB) $(STRIPPING)
+ 
+ clean:
+ 	pwd_v=`pwd`; \
+--- src/xjroot/makefile.in.link	2011-01-07 09:41:53.000000000 +0000
++++ src/xjroot/makefile.in	2011-01-07 09:45:26.000000000 +0000
+@@ -40,8 +40,8 @@
+ 	make $(MYBINDIR)/xjpegroot
+ 
+ $(MYBINDIR)/xjpegroot: $(XJOBJS) $(XJLIBS) $(JDEP)
+-	$(CXX) -o $@ $(XJOBJS) $(XJLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ $(XJOBJS) $(XJLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
++	$(DEB) $(STRIPPING)
+ 
+ clean:
+ 	$(RMF) *.o
+--- src/xsetup/makefile.in.link	2011-01-07 09:41:53.000000000 +0000
++++ src/xsetup/makefile.in	2011-01-07 09:45:51.000000000 +0000
+@@ -56,8 +56,8 @@
+ 	make $(MYBINDIR)/xncsetup
+ 
+ $(MYBINDIR)/xncsetup: $(SETUPOBJS) $(SETUPLIBS) $(JDEP)
+-	$(CXX) -o $@ $(SETUPOBJS) $(SETUPLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
+-	$(LDFLAGS) $(DEB) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ $(SETUPOBJS) $(SETUPLIBS) $(LOCAL_LIBRARIES) $(JLIB) \
++	$(DEB) $(STRIPPING)
+ 
+ clean:
+ 	$(RMF) *.o
+--- src/helpers/makefile.in.link	2011-01-07 09:51:26.000000000 +0000
++++ src/helpers/makefile.in	2011-01-07 09:52:01.000000000 +0000
+@@ -31,16 +31,16 @@
+ compile: $(PROGRAM)
+ 
+ $(MYBINDIR)/users.xnc: users.cxx
+-	$(CXX) -o $@ users.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ users.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
+ 
+ $(MYBINDIR)/groups.xnc: groups.cxx
+-	$(CXX) -o $@ groups.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ groups.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
+ 
+ $(MYBINDIR)/zips.xnc: zips.cxx
+-	$(CXX) -o $@ zips.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ zips.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
+ 
+ $(MYBINDIR)/data2c: data2c.cxx
+-	$(CXX) -o $@ data2c.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
++	$(CXX) $(LDFLAGS) -o $@ data2c.cxx $(DEB) $(DEFS) $(CFLAGS) $(INCLUDES) $(STRIPPING)
+ 
+ clean:
+ 	 $(RMF) $(PROGRAM)
+--- src/plugins/aqua/makefile.in.link	2011-01-07 09:57:27.000000000 +0000
++++ src/plugins/aqua/makefile.in	2011-01-07 09:57:40.000000000 +0000
+@@ -52,7 +52,7 @@
+ 	make $(MYLIBDIR)/libxncaqua.so
+ 
+ $(MYLIBDIR)/libxncaqua.so: $(AQUAOBJS)
+-	$(CXX) -o $@ $(AQUAOBJS) -shared $(SHAREFLAGS) $(DEB) $(STRIPPING) $(LD_SHAREFLAGS)
++	$(CXX) -o $@ $(AQUAOBJS) -shared $(SHAREFLAGS) $(DEB) $(STRIPPING) $(LD_SHAREFLAGS) -lX11
+ 
+ clean:
+ 	$(RMF) *.o
+--- src/plugins/five/makefile.in.link	2011-01-07 09:57:54.000000000 +0000
++++ src/plugins/five/makefile.in	2011-01-07 09:58:07.000000000 +0000
+@@ -52,7 +52,7 @@
+ 	make $(MYLIBDIR)/libxncfive.so
+ 
+ $(MYLIBDIR)/libxncfive.so: $(FIVEOBJS)
+-	$(CXX) -o $@ $(FIVEOBJS) -shared $(SHAREFLAGS) $(DEB) $(STRIPPING) $(LD_SHAREFLAGS)
++	$(CXX) -o $@ $(FIVEOBJS) -shared $(SHAREFLAGS) $(DEB) $(STRIPPING) $(LD_SHAREFLAGS) -lX11
+ 
+ clean:
+ 	$(RMF) *.o

@@ -1,0 +1,22 @@
+--- src/xsetup/setup.cxx.str	2011-01-07 08:21:23.000000000 +0000
++++ src/xsetup/setup.cxx	2011-01-07 08:21:35.000000000 +0000
+@@ -38,7 +38,7 @@
+ 
+ static void print_error(char* err)
+ {
+-    fprintf(stderr, err);
++    fprintf(stderr, "%s", err);
+ }
+ 
+ extern int sfiles_chr_size;
+--- src/xsetup/setup.cxx.str	2011-01-07 08:26:55.000000000 +0000
++++ src/xsetup/setup.cxx	2011-01-07 08:27:08.000000000 +0000
+@@ -1116,7 +1116,7 @@
+ 	{
+ 	    fprintf(fp,"%s:              ",chncols[i]);
+ 	    genrgb(tmp,startcol[i][0],startcol[i][1],startcol[i][2]);
+-	    fprintf(fp,tmp);
++	    fprintf(fp,"%s",tmp);
+ 	}
+ 	if(swsticky.sw) tsticky="yes"; else tsticky="no";
+ 	if(swraise.sw) traise="yes"; else traise="no";
