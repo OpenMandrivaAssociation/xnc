@@ -14,6 +14,11 @@ Patch1: xnc-5.0.4-str-fmt.patch
 Patch2: xnc-5.0.4-link.patch
 Url: https://www.xnc.dubna.su  
 Group:  File tools
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: libx11-devel
 BuildRequires: libxext-devel
 Buildrequires: libxt-devel
