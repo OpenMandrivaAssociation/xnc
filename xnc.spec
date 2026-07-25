@@ -1,6 +1,6 @@
 %define name xnc
 %define version 5.0.4
-%define release %mkrel 10
+%define release 11
 %define iconname %{name}.png
  
 
